@@ -1,0 +1,11 @@
+run = "node index.js" 
+language = "Bash"
+modules = ["web", "nodejs-16", "bash"]
+
+[nix]
+channel = "stable-24_05"
+
+[[ports]]
+localPort = 4200
+externalPort = 80
+
