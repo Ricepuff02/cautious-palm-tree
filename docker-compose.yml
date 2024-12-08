@@ -1,27 +1,27 @@
-version: '2.4'
-services:
+og docker compose
 
-   cherrymusic:
-    #build:
-    #  context: .
-    #  dockerfile: alpine.Dockerfile
-    image: tobi312/rpi-cherrymusic:alpine
-    container_name: cherrymusic
+services:
+  discord-musicbot:
+    build: .
+    image: tobi312/rpi-cherrymusic:debian
+    container_name: discord-musicbot
     restart: unless-stopped
-    ports:
-      - 8080:8080/tcp
-      - 8443:8443/tcp
-    environment:
-      CONFIG_DOWNLOAD_ENABLE: "1" # optional, for first start!
-      #SELF_SIGNED_CERT_CREATE: "1"
-      #SERVER_SSL_ENABLED: "True"
+    networks:
+      - lavalink-net
+    depends_on:
+      - lavalink
     volumes:
-      - ./cherrymusic/config:/cherrymusic/.config/cherrymusic:rw
-      - ./cherrymusic/data:/cherrymusic/.local/share/cherrymusic:rw
-      - ./Music:/cherrymusic/Music:ro
-      #- ./ssl:/cherrymusic/ssl
-    healthcheck:
-      test: ["CMD-SHELL", "nc -nzv -w 3 127.0.0.1 8080 || exit 1"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
+      - ./config.js:/usr/src/app/config.js:ro
+
+  lavalink:
+    image: fredboat/lavalink:3.7.12
+    container_name: music-lavalink
+    hostname: lavalink
+    restart: unless-stopped
+    networks:
+      - lavalink-net
+    volumes:
+      - ./docker/application.yml:/opt/Lavalink/application.yml:ro
+
+networks:
+  lavalink-net:
