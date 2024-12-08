@@ -25,15 +25,3 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
-  lavalink:
-    image: fredboat/lavalink:3.7.12
-    container_name: music-lavalink
-    hostname: lavalink
-    restart: unless-stopped
-    networks:
-      - lavalink-net
-    volumes:
-      - ./docker/application.yml:/opt/Lavalink/application.yml:ro
-
-networks:
-  lavalink-net:
