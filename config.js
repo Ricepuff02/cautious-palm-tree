@@ -4,7 +4,7 @@ module.exports = {
 	adminId: "516709856774848519", //- Replace UserId with the Discord ID of the admin of the bot
 	token: process.env.token || "MTMwOTAyNTQ2Mjg2MDkwNjQ5Nw.GpHk9h.kNJ6YJv6LaMcgT1kKf9kLhRccHUM6Wc7-oqOkM", //- Bot's Token
 	clientId: process.env.clientId || "1309025462860906497", //- ID of the bot
-	clientSecret: process.env.clientSecret || "nhUkG9P6FO-TSOjWrxLAYYuuSy7Ext5J", //- Client Secret of the bot
+	clientSecret: process.env.clientSecret || "yL5Kc4W6Wmo4a44gUvaLKbu2m3UurLXI", //- Client Secret of the bot
 	port: 4200, //- Port of the API and Dashboard
 	scopes: ["identify", "guilds", "applications.commands"], //- Discord OAuth2 Scopes
 	inviteScopes: ["bot", "applications.commands"], // Invite link scopes
