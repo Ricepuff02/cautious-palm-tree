@@ -3,7 +3,7 @@
 services:
   discord-musicbot:
     build: .
-    image: luist14/discord-musicbot
+    image: tobi312/rpi-cherrymusic:alpine
     container_name: discord-musicbot
     restart: unless-stopped
     networks:
