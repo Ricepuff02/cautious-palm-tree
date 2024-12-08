@@ -3,7 +3,7 @@
 services:
   discord-musicbot:
     build: .
-    image: kaaaxcreators/discord-musicbot
+    image: luist14/discord-musicbot
     container_name: discord-musicbot
     restart: unless-stopped
     networks:
