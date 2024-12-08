@@ -52,7 +52,6 @@ services:
 #  default:
 #    external: true
 #    name: mynetwork
-
   lavalink:
     image: fredboat/lavalink:3.7.12
     container_name: music-lavalink
